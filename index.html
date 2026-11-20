@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="peluqueria">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hello Baby — Sistema de gestión interna de barbería y peluquería. Inicia sesión.">
+  <title>Inicia sesión · Hello Baby</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23E91E63' d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/></svg>">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="login-page" data-page="login">
+
+  <a class="skip-link" href="#login-form">Saltar al contenido</a>
+
+  <main class="login-wrap">
+    <section class="login-card" aria-label="Formulario de inicio de sesión">
+      <div class="login-logo">
+        <span class="logo-mark" aria-hidden="true">
+          <svg class="icon icon-lg icon-heart"><use href="#i-logo"/></svg>
+        </span>
+        <p class="logo-name">hello <b>baby</b></p>
+        <p class="login-tag">Barbería &amp; Peluquería</p>
+      </div>
+
+      <h1 class="login-title">Inicia sesión</h1>
+
+      <form class="login-form" id="login-form" novalidate>
+        <div class="field">
+          <label for="login-user">Usuario</label>
+          <div class="input-icon">
+            <svg class="icon" aria-hidden="true"><use href="#i-user"/></svg>
+            <input type="text" id="login-user" name="usuario" autocomplete="username"
+                   placeholder="Ingresa tu usuario" aria-describedby="login-user-error">
+          </div>
+          <p class="field-error" id="login-user-error" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="login-pass">Contraseña</label>
+          <div class="input-icon">
+            <svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>
+            <input type="password" id="login-pass" name="password" autocomplete="current-password"
+                   placeholder="Ingresa tu contraseña" aria-describedby="login-pass-error">
+            <button type="button" class="input-append" id="toggle-pass" aria-label="Mostrar contraseña">
+              <svg class="icon" id="eye-on" aria-hidden="true"><use href="#i-eye"/></svg>
+              <svg class="icon" id="eye-off" style="display:none" aria-hidden="true"><use href="#i-eye-off"/></svg>
+            </button>
+          </div>
+          <p class="field-error" id="login-pass-error" hidden></p>
+        </div>
+
+        <div class="login-options">
+          <label class="check">
+            <input type="checkbox" id="remember" name="remember">
+            Recuérdame
+          </label>
+          <a href="#" id="forgot-link">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+      </form>
+
+      <p class="demo-hint">Credenciales de demostración: <strong>admin</strong> · <strong>123456</strong></p>
+    </section>
+  </main>
+
+  <footer class="login-footer">
+    <span>© 2026 Hello Baby</span>
+    <svg class="icon icon-heart" aria-hidden="true"><use href="#i-logo"/></svg>
+    <span>Todos los derechos reservados.</span>
+  </footer>
+
+  <!-- Sprite de iconos -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-logo" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+    <symbol id="i-danger" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></symbol>
+    <symbol id="i-off" viewBox="0 0 24 24"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+    <symbol id="i-trend-up" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></symbol>
+  </svg>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
