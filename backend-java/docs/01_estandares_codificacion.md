@@ -12,6 +12,12 @@ Basado en las convenciones de Oracle/Google para Java, aplicadas a este proyecto
 | Constantes | `UPPER_SNAKE_CASE`, `static final` | `SQL_FIND_ALL` | `sqlFindAll` |
 | Booleanos | Prefijo `is`/`has` en getters | `isActivo()` | `getActivo()` |
 
+## Idioma de los nombres
+
+- **Repositorio (acceso a datos):** nombres en inglés (`findAll`, `findById`, `save`, `update`, `deleteById`), siguiendo la convención CRUD usada comúnmente en Java para esta capa.
+- **Servicio, modelo y consola:** nombres en español del dominio del negocio (`registrarEmpleado`, `Empleado`, `fechaNacimiento`), para que coincidan con el lenguaje del establecimiento y con las historias de usuario.
+- En ambos casos se mantiene la misma regla de formato: `PascalCase` en clases, `camelCase` en métodos y variables.
+
 ## Reglas adicionales aplicadas
 
 - Un archivo público por clase, con el mismo nombre del archivo.

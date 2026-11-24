@@ -18,6 +18,12 @@ public final class InputUtil {
         return SCANNER.nextLine().trim();
     }
 
+    /** Lee un texto; si el usuario solo pulsa Enter, conserva el valor actual. */
+    public static String leerTextoConValorActual(String etiqueta, String valorActual) {
+        String valor = leerTexto(etiqueta + " [" + valorActual + "]: ");
+        return valor.isEmpty() ? valorActual : valor;
+    }
+
     public static int leerEntero(String mensaje) {
         while (true) {
             String valor = leerTexto(mensaje);

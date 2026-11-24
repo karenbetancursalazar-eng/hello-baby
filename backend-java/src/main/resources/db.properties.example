@@ -1,6 +1,6 @@
 # Copiar este archivo como: src/main/resources/db.properties
 # Ajustar usuario, contraseña y nombre de la base de datos según tu instalación.
 db.driver=com.mysql.cj.jdbc.Driver
-db.url=jdbc:mysql://localhost:3306/hellobaby_db?useSSL=false&serverTimezone=America/Bogota&allowPublicKeyRetrieval=true
+db.url=jdbc:mysql://localhost:3306/hello_baby?useSSL=false&serverTimezone=America/Bogota&allowPublicKeyRetrieval=true
 db.user=root
 db.password=

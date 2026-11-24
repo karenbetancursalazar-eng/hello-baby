@@ -11,7 +11,7 @@
 | 3. Configuración | Creación del proyecto Maven, dependencias, configuración JDBC y repositorio Git | 10 | `pom.xml`, `db.properties.example`, repo GitHub |
 | 4. Codificación | Implementación de entidad, repositorio JDBC y servicio con validaciones | 26 | Código fuente del módulo |
 | 5. Pruebas | Pruebas unitarias CRUD con H2 y validación manual en MySQL | 20 | `EmpleadoRepositoryTest`, evidencia de ejecución |
-| 6. Documentación y entrega | README, enlace del repositorio y empaquetado ZIP con nombre del aprendiz | 12 | ZIP `NOMBREAPELLIDO_AA2_EV01` |
+| 6. Documentación y entrega | README, enlace del repositorio y empaquetado ZIP con nombre del aprendiz | 12 | ZIP `KARENPATRICIABETANCURSALAZAR_AA2_EV01` |
 | **Total** | | **96** | |
 
 ## Criterios de aceptación

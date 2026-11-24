@@ -96,9 +96,12 @@ public class Main {
             return;
         }
         Empleado empleado = existente.get();
-        empleado.setNombres(InputUtil.leerTexto("Nombres [" + empleado.getNombres() + "]: "));
-        empleado.setApellidos(InputUtil.leerTexto("Apellidos [" + empleado.getApellidos() + "]: "));
-        empleado.setRol(InputUtil.leerTexto("Rol [" + empleado.getRol() + "]: "));
+        System.out.println("Pulse Enter para conservar el valor actual.");
+        empleado.setNombres(InputUtil.leerTextoConValorActual("Nombres", empleado.getNombres()));
+        empleado.setApellidos(InputUtil.leerTextoConValorActual("Apellidos", empleado.getApellidos()));
+        empleado.setCorreo(InputUtil.leerTextoConValorActual("Correo electrónico", empleado.getCorreo()));
+        empleado.setWhatsapp(InputUtil.leerTextoConValorActual("WhatsApp", empleado.getWhatsapp() == null ? "" : empleado.getWhatsapp()));
+        empleado.setRol(InputUtil.leerTextoConValorActual("Rol", empleado.getRol()));
         System.out.println(EMPLEADO_SERVICE.actualizarEmpleado(empleado)
             ? "Empleado actualizado correctamente."
             : "No se pudo actualizar el empleado.");

@@ -8,5 +8,5 @@ Contenido versionado:
 - Scripts SQL, estandares de codificacion, plan de trabajo, historias de usuario,
   casos de uso y diagrama de clases.
 
-Commit de la evidencia: 00da8ed - "feat: modulo empleados con CRUD JDBC y estandares de codificacion"
+Ultimo commit: ver el historial de la rama main en el repositorio.
 Rama: main

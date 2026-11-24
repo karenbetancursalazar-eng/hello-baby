@@ -9,6 +9,7 @@ Proyecto: sistema de gestión interna de barbería y peluquería (prototipo en `
 backend-java/
 ├─ pom.xml
 ├─ database/
+│  ├─ create_database.sql # crea la base hello_baby
 │  ├─ schema.sql          # tabla empleados
 │  └─ seed_data.sql       # datos del prototipo
 ├─ src/main/java/com/hellobaby/
@@ -47,7 +48,7 @@ CREATE → READ → UPDATE → LIST → DELETE con el mismo código JDBC.
 ## 3. Preparar MySQL (XAMPP)
 
 1. Inicia Apache y MySQL en el panel de XAMPP.
-2. Entra a `http://localhost/phpmyadmin` y crea la base `hellobaby_db`.
+2. Entra a `http://localhost/phpmyadmin` y crea la base `hello_baby` (o ejecuta `database/create_database.sql`).
 3. Abre la pestaña **SQL** y ejecuta, en este orden:
    - `database/schema.sql`
    - `database/seed_data.sql`
@@ -67,43 +68,29 @@ Copy-Item src\main\resources\db.properties.example src\main\resources\db.propert
 mvn clean compile exec:java
 ```
 
-Menú disponible: consultar, registrar, actualizar, eliminar y buscar por id.
+Menú disponible: consultar, registrar, actualizar (nombres, apellidos, correo, WhatsApp y rol), eliminar y buscar por id.
 
 ## 5. Versionamiento en GitHub
 
-```powershell
-git init
-git add .
-git commit -m "feat: modulo empleados con CRUD JDBC y estandares de codificacion"
-git branch -M main
-git remote add origin https://github.com/TU_USUARIO/hello-baby-backend.git
-git push -u origin main
-```
+Repositorio: https://github.com/karenbetancursalazar-eng/hello-baby
 
-Después reemplaza el enlace en `enlace_repositorio.txt` con tu URL real y haz
-`git add enlace_repositorio.txt` + `git commit` + `git push`.
+Para subir cambios nuevos:
+
+```powershell
+git add .
+git commit -m "descripcion del cambio"
+git push
+```
 
 ## 6. Empaquetar la evidencia
 
-Desde la carpeta `Hello Baby KARENB` (un nivel arriba de `backend-java`):
-
-```powershell
-$destino = "NOMBREAPELLIDO_AA2_EV01"
-New-Item -ItemType Directory -Force $destino | Out-Null
-Copy-Item -Recurse -Force ".\backend-java\*" $destino
-Copy-Item -Recurse -Force ".\css" "$destino\frontend\css"
-Copy-Item -Recurse -Force ".\js" "$destino\frontend\js"
-Copy-Item -Force ".\*.html" "$destino\frontend"
-Compress-Archive -Path "$destino\*" -DestinationPath "$destino.zip" -Force
-```
-
-**Importante:** cambia `NOMBREAPELLIDO` por tu nombre real, por ejemplo
-`KARENRAMIREZ_AA2_EV01.zip`. Ese ZIP es el que se envía al área de la actividad.
+Comprimir la carpeta del proyecto (`backend-java`, el frontend y el archivo
+`enlace_repositorio.txt`) en un ZIP llamado `KARENPATRICIABETANCURSALAZAR_AA2_EV01.zip`.
 
 ## 7. Checklist antes de entregar
 
 - [ ] `mvn test` pasa correctamente.
-- [ ] CRUD probado en MySQL con los 5 registros de ejemplo.
-- [ ] Repositorio GitHub público con al menos un commit.
+- [ ] CRUD probado en MySQL con los registros de ejemplo.
+- [ ] Repositorio GitHub público con los últimos cambios subidos.
 - [ ] `enlace_repositorio.txt` con la URL correcta.
-- [ ] ZIP con el nombre `NOMBREAPELLIDO_AA2_EV01`.
+- [ ] ZIP con el nombre `KARENPATRICIABETANCURSALAZAR_AA2_EV01`.
