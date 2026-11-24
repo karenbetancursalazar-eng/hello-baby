@@ -1,9 +1,12 @@
-Enlace del repositorio del proyecto (REEMPLAZAR con tu URL real):
+Enlace del repositorio del proyecto Hello Baby:
 
-https://github.com/TU_USUARIO/hello-baby-backend
+https://github.com/karenbetancursalazar-eng/hello-baby
 
-Instrucciones:
-1. Crea el repositorio en GitHub (público).
-2. Sube el código con: git init / git add . / git commit / git remote add origin <URL> / git push -u origin main
-3. Copia la URL que aparece en la barra del navegador y pégala arriba.
-4. Guarda este archivo dentro del ZIP: NOMBREAPELLIDO_AA2_EV01.zip
+Contenido versionado:
+- Prototipo web (HTML/CSS/JS) de Hello Baby.
+- Modulo Empleados con JDBC y operaciones CRUD (insertar, consultar, actualizar y eliminar).
+- Scripts SQL, estandares de codificacion, plan de trabajo, historias de usuario,
+  casos de uso y diagrama de clases.
+
+Commit de la evidencia: 00da8ed - "feat: modulo empleados con CRUD JDBC y estandares de codificacion"
+Rama: main
