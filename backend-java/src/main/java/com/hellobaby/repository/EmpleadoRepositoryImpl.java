@@ -18,12 +18,12 @@ import java.util.Optional;
 public class EmpleadoRepositoryImpl implements EmpleadoRepository {
 
     private static final String SQL_FIND_ALL =
-        "SELECT id, nombres, apellidos, cedula, correo, whatsapp, rol, tipo, fecha_nacimiento, activo "
-        + "FROM empleados ORDER BY id";
+        "SELECT id_empleado AS id, nombres, apellidos, cedula, correo, whatsapp, rol, tipo, fecha_nacimiento, activo "
+        + "FROM empleados ORDER BY id_empleado";
 
     private static final String SQL_FIND_BY_ID =
-        "SELECT id, nombres, apellidos, cedula, correo, whatsapp, rol, tipo, fecha_nacimiento, activo "
-        + "FROM empleados WHERE id = ?";
+    "SELECT id_empleado AS id, nombres, apellidos, cedula, correo, whatsapp, rol, tipo, fecha_nacimiento, activo "
+    + "FROM empleados WHERE id_empleado = ?";
 
     private static final String SQL_INSERT =
         "INSERT INTO empleados (nombres, apellidos, cedula, correo, whatsapp, rol, tipo, fecha_nacimiento, activo) "
@@ -31,9 +31,9 @@ public class EmpleadoRepositoryImpl implements EmpleadoRepository {
 
     private static final String SQL_UPDATE =
         "UPDATE empleados SET nombres = ?, apellidos = ?, cedula = ?, correo = ?, whatsapp = ?, "
-        + "rol = ?, tipo = ?, fecha_nacimiento = ?, activo = ? WHERE id = ?";
+        + "rol = ?, tipo = ?, fecha_nacimiento = ?, activo = ? WHERE id_empleado = ?";
 
-    private static final String SQL_DELETE = "DELETE FROM empleados WHERE id = ?";
+    private static final String SQL_DELETE = "DELETE FROM empleados WHERE id_empleado = ?";
 
     @Override
     public List<Empleado> findAll() {

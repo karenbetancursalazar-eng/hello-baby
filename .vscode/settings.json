@@ -1,0 +1,17 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "sqltools.connections": [
+        {
+            "name": "Hello Baby - hello_baby",
+            "driver": "MySQL",
+            "server": "127.0.0.1",
+            "port": 3306,
+            "database": "hello_baby",
+            "username": "root",
+            "password": "",
+            "askForPassword": false,
+            "connectionTimeout": 15
+        }
+    ],
+    "sqltools.autoOpenSessionFiles": false
+}

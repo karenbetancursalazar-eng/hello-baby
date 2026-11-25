@@ -4,7 +4,7 @@
 -- ============================================================
 
 CREATE TABLE IF NOT EXISTS empleados (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id_empleado BIGINT AUTO_INCREMENT PRIMARY KEY,
     nombres VARCHAR(100) NOT NULL,
     apellidos VARCHAR(100) NOT NULL,
     cedula VARCHAR(20) NOT NULL UNIQUE,
