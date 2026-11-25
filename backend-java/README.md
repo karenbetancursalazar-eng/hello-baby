@@ -1,11 +1,10 @@
-# Hello Baby — Módulo Empleados integrado (JDBC + Servlet + JSP)
+# Hello Baby — Módulo Empleados (JDBC + Servlet + JSP)
 
 Evidencia **GA7-220501096-AA2-EV01 — Codificación de módulos del software**.
-Proyecto: sistema de gestión interna de barbería y peluquería (prototipo en `../`).
+Proyecto: sistema de gestión interna de barbería y peluquería.
 
-El frontend original se conservó en `../empleados.html`, `../css/styles.css` y
-`../js/app.js`. La versión integrada reutiliza el mismo diseño, clases, temas,
-iconos, formularios y tabla, pero lee y escribe en MySQL mediante el Servlet.
+La pantalla JSP reutiliza el diseño de `../empleados.html`, `../css/styles.css`
+y `../js/app.js`, y lee y escribe en MySQL mediante el Servlet.
 
 ## Contenido
 
@@ -30,7 +29,7 @@ backend-java/
 ├─ src/main/webapp/
 │  ├─ WEB-INF/views/empleados.jsp  # interfaz original adaptada a JSP
 │  ├─ css/styles.css               # copia del CSS original
-│  └─ js/empleados.js              # JS de la versión integrada (sin localStorage)
+│  └─ js/empleados.js              # JS de la pantalla JSP
 ├─ src/test/                       # prueba CRUD con H2
 ├─ docs/                           # estándares, plan, HU, casos de uso, diagrama
 └─ enlace_repositorio.txt
@@ -53,7 +52,7 @@ La misma base se configuró en VS Code con SQLTools como
 - Tomcat 10.1+ / 11 (se validó con Tomcat 11.0.29)
 - Git y una cuenta de GitHub
 
-## 2. Pruebas automáticas (sin instalar MySQL)
+## 2. Pruebas con H2
 
 Desde `backend-java/`:
 
@@ -66,11 +65,10 @@ memoria (modo MySQL) y ejecuta CREATE → READ → UPDATE → LIST → DELETE, a
 de una prueba que verifica que al eliminar un empleado también se eliminan sus
 citas.
 
-> Nota no bloqueante: en esta máquina, `mvn clean test` puede fallar porque
-> OneDrive bloquea temporalmente `target/classes/com/hellobaby/config`.
-> Use `mvn test` o `mvn package` sin `clean`; ambos pasan correctamente.
+Si `mvn clean` falla porque OneDrive bloquea `target/classes/com/hellobaby/config`,
+ejecute `mvn test` o `mvn package` sin `clean`.
 
-Resultado verificado:
+Salida:
 
 ```
 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
@@ -130,7 +128,7 @@ La JSP sirve `css/styles.css` y `js/empleados.js` con el contexto de la app.
 No se carga `js/app.js` porque interceptaba el formulario y guardaba en
 `localStorage`.
 
-## 5. Funciones verificadas en la interfaz
+## 5. Funciones de la interfaz
 
 - Temas Peluquería (`#E91E63`) y Barbería (`#FF6B00`) con `aria-pressed`.
 - Menú lateral responsive y encabezado oscuro original.
@@ -180,7 +178,7 @@ git push
 - [x] `mvn test` pasa correctamente.
 - [x] `mvn package` genera el WAR con JSP, CSS, JS y `db.properties`.
 - [x] CRUD probado en MySQL `hello_baby` con los registros de ejemplo.
-- [x] Alta/actualización reales verificadas por HTTP y MySQL.
+- [x] Alta y actualización probadas por HTTP y MySQL.
 - [x] Repositorio GitHub con los últimos cambios subidos.
 - [x] `enlace_repositorio.txt` con la URL correcta.
-- [x] No se crea ningún ZIP en esta entrega (por indicación del usuario).
+- [x] El proyecto se entrega sin archivos comprimidos.

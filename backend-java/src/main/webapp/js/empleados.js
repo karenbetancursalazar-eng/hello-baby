@@ -1,12 +1,8 @@
-/*
- * Hello Baby — JS de la versión integrada (empleados.jsp)
- * Reutiliza el diseño y las validaciones de js/app.js, pero NO usa
- * localStorage para empleados: los datos vienen de MySQL por el Servlet.
- */
+/* Hello Baby — comportamiento de la pantalla de empleados. */
 (function () {
   'use strict';
 
-  window.__empleadosJsCargado = true;
+  window.hbEliminarConfigurado = true;
 
   var THEME_KEY = 'hello-baby-theme';
   var ROLES_POR_TEMA = { peluqueria: 'Estilista', barberia: 'Barbero' };
@@ -17,7 +13,7 @@
   }
 
   /* ------------------------------------------------------------------ *
-   * Modal (mismas clases CSS del prototipo original)
+   * Modal
    * ------------------------------------------------------------------ */
   function openModal(opciones) {
     var resolver;
@@ -151,7 +147,7 @@
   };
 
   /* ------------------------------------------------------------------ *
-   * Tema visual (idéntico al prototipo: hello-baby-theme)
+   * Tema visual
    * ------------------------------------------------------------------ */
   var temaActual = 'peluqueria';
   try {
@@ -193,7 +189,7 @@
   });
 
   /* ------------------------------------------------------------------ *
-   * Menú lateral responsive (idéntico al prototipo)
+   * Menú lateral responsive
    * ------------------------------------------------------------------ */
   function inicializarMenu() {
     var boton = $('#menu-btn');

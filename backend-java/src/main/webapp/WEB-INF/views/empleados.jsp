@@ -91,7 +91,7 @@
           <span class="user-role" data-user-role>Administrador</span>
         </span>
       </span>
-      <span class="btn btn-logout" aria-disabled="true" title="El cierre de sesión no está integrado" style="opacity:.65;cursor:not-allowed">
+      <span class="btn btn-logout" aria-disabled="true" title="Cierre de sesión no disponible" style="opacity:.65;cursor:not-allowed">
         <svg class="icon" aria-hidden="true"><use href="#i-logout"/></svg>
         <span class="logout-label">Cerrar sesión</span>
       </span>
@@ -104,7 +104,7 @@
       <nav>
         <ul class="nav-list">
           <li>
-            <span class="nav-link" data-module="dashboard" aria-disabled="true" title="Módulo no integrado aún" style="opacity:.55;cursor:not-allowed">
+            <span class="nav-link" data-module="dashboard" aria-disabled="true" title="Módulo no disponible" style="opacity:.55;cursor:not-allowed">
               <svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg>
               <span>Dashboard</span>
             </span>
@@ -116,19 +116,19 @@
             </a>
           </li>
           <li>
-            <span class="nav-link" data-module="citas" aria-disabled="true" title="Módulo no integrado aún" style="opacity:.55;cursor:not-allowed">
+            <span class="nav-link" data-module="citas" aria-disabled="true" title="Módulo no disponible" style="opacity:.55;cursor:not-allowed">
               <svg class="icon" aria-hidden="true"><use href="#i-calendar-check"/></svg>
               <span>Citas</span>
             </span>
           </li>
           <li>
-            <span class="nav-link" data-module="servicios" aria-disabled="true" title="Módulo no integrado aún" style="opacity:.55;cursor:not-allowed">
+            <span class="nav-link" data-module="servicios" aria-disabled="true" title="Módulo no disponible" style="opacity:.55;cursor:not-allowed">
               <svg class="icon" aria-hidden="true"><use href="#i-scissors"/></svg>
               <span>Servicios</span>
             </span>
           </li>
           <li>
-            <span class="nav-link" data-module="ganancias" aria-disabled="true" title="Módulo no integrado aún" style="opacity:.55;cursor:not-allowed">
+            <span class="nav-link" data-module="ganancias" aria-disabled="true" title="Módulo no disponible" style="opacity:.55;cursor:not-allowed">
               <svg class="icon" aria-hidden="true"><use href="#i-wallet"/></svg>
               <span>Ganancias</span>
             </span>
@@ -137,7 +137,7 @@
       </nav>
       <div class="sidebar-foot">
         <div class="sidebar-divider"></div>
-        <span class="nav-link" data-module="perfil" aria-disabled="true" title="Módulo no integrado aún" style="opacity:.55;cursor:not-allowed">
+        <span class="nav-link" data-module="perfil" aria-disabled="true" title="Módulo no disponible" style="opacity:.55;cursor:not-allowed">
           <svg class="icon" aria-hidden="true"><use href="#i-user"/></svg>
           <span>Perfil</span>
         </span>
@@ -377,8 +377,8 @@
 
   <script src="<%= ctx %>/js/empleados.js?v=2"></script>
   <script>
-    // Respaldo: si el JS principal no se cargó, el botón Eliminar sigue funcionando.
-    if (!window.__empleadosJsCargado) {
+    /* Eliminación directa si el script principal no está disponible. */
+    if (!window.hbEliminarConfigurado) {
       document.querySelectorAll('[data-eliminar]').forEach(function (boton) {
         boton.addEventListener('click', function () {
           var fila = boton.closest('tr');
