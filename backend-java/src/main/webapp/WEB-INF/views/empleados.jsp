@@ -53,7 +53,7 @@
   <meta name="description" content="Hello Baby — Gestión de empleados. Registro de nuevo empleado.">
   <title>Empleados · Hello Baby</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23E91E63' d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/></svg>">
-  <link rel="stylesheet" href="<%= ctx %>/css/styles.css?v=4">
+  <link rel="stylesheet" href="<%= ctx %>/css/styles.css?v=5">
   <style>html { scroll-behavior: auto; }</style>
 </head>
 <body data-page="empleados">
@@ -162,8 +162,6 @@
           <form id="empleado-form" action="<%= ctx %>/empleados" method="post" novalidate>
             <input type="hidden" id="emp-id" name="id" value="0">
             <input type="hidden" id="emp-accion" name="accion" value="crear">
-            <input type="hidden" id="emp-rol" name="rol" value="Estilista">
-            <input type="hidden" id="emp-tipo" name="tipo" value="peluqueria">
             <input type="hidden" id="emp-activo" name="activo" value="true">
 
             <div class="form-grid">
@@ -212,6 +210,22 @@
                        placeholder="Ej: +57 300 123 4567" aria-describedby="err-whatsapp"
                        value="<%= valor(form, "whatsapp") %>">
                 <p class="field-error" id="err-whatsapp" hidden></p>
+              </div>
+
+              <div class="field">
+                <label for="emp-tipo">Área <span class="req" aria-hidden="true">*</span></label>
+                <select id="emp-tipo" name="tipo">
+                  <option value="peluqueria">Peluquería</option>
+                  <option value="barberia">Barbería</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="emp-rol">Rol <span class="req" aria-hidden="true">*</span></label>
+                <select id="emp-rol" name="rol">
+                  <option value="Estilista">Estilista</option>
+                  <option value="Barbero">Barbero</option>
+                </select>
               </div>
             </div>
 
@@ -376,7 +390,7 @@
     <symbol id="i-baby" viewBox="0 0 24 24"><circle cx="12" cy="9" r="4.5"/><path d="M7.5 14.5a5 5 0 0 0 9 0"/><path d="M12 14.5V18"/></symbol>
   </svg>
 
-  <script src="<%= ctx %>/js/empleados.js?v=4"></script>
+  <script src="<%= ctx %>/js/empleados.js?v=5"></script>
   <script>
     /* Eliminación directa si el script principal no está disponible. */
     if (!window.hbEliminarConfigurado) {
@@ -387,7 +401,7 @@
           var nombre = (fila.getAttribute('data-nombres') || '') + ' ' +
                        (fila.getAttribute('data-apellidos') || '');
           if (!window.confirm('¿Eliminar a ' + nombre +
-              '? También se eliminarán sus citas asociadas.')) { return; }
+              '? Esta operación no se puede deshacer.')) { return; }
           var form = document.getElementById('form-eliminar');
           document.getElementById('eliminar-id').value = fila.getAttribute('data-id');
           form.submit();

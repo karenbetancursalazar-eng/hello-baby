@@ -1,0 +1,21 @@
+Pruebas de la capa web - GA7-220501096-AA2-EV02
+URL: http://localhost:8080/hello-baby-backend/empleados
+Fecha: 25/11/2026
+
+1. Registro
+   Empleado temporal con cedula 9999999901, area Barberia y rol Barbero.
+   Mensaje: Empleado registrado correctamente.
+   Captura: 01_registrar.png
+
+2. Edicion
+   Se cambio el nombre a "Evidencia Editada" desde el boton Editar.
+   Mensaje: Empleado actualizado correctamente.
+   Captura: 02_editar.png
+
+3. Eliminacion
+   Confirmacion desde el boton Eliminar.
+   Mensaje: Empleado eliminado correctamente.
+   Captura: 03_eliminar.png
+
+El registro temporal quedo eliminado. La base quedo con 5 empleados y 3 citas.
+Captura 00_formulario.png muestra el formulario con los campos Area y Rol.

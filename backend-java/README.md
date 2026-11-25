@@ -3,6 +3,9 @@
 Evidencia **GA7-220501096-AA2-EV01 — Codificación de módulos del software**.
 Proyecto: sistema de gestión interna de barbería y peluquería.
 
+La capa web se implementa con `EmpleadoServlet` (`doGet` para mostrar la JSP y
+`doPost` para registrar, editar y eliminar) y la vista `empleados.jsp`.
+
 La pantalla JSP reutiliza el diseño de `../empleados.html`, `../css/styles.css`
 y `../js/app.js`, y lee y escribe en MySQL mediante el Servlet.
 

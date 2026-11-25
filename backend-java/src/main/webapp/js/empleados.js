@@ -137,7 +137,7 @@
         icon: 'danger',
         title: 'Confirmar eliminación',
         message: '¿Deseas eliminar al empleado <strong>' + nombre +
-                 '</strong>? También se eliminarán sus citas asociadas en MySQL.',
+                 '</strong>? Esta operación no se puede deshacer.',
         buttons: [
           { label: 'Cancelar', id: 'cancelar', variant: 'outline' },
           { label: 'Eliminar', id: 'eliminar', variant: 'danger' }
@@ -315,6 +315,13 @@
     window.scrollTo(0, 0);
 
     inicializarMenu();
+
+    var tipo = $('#emp-tipo');
+    if (tipo) {
+      tipo.addEventListener('change', function () {
+        cambiarTema(tipo.value, true);
+      });
+    }
 
     var form = $('#empleado-form');
     var fecha = $('#emp-fecha');
