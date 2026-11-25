@@ -84,7 +84,7 @@
     document.body.appendChild(modal);
 
     var primerBoton = contenedorBotones.querySelector('button');
-    if (primerBoton) { primerBoton.focus(); }
+    if (primerBoton) { primerBoton.focus({ preventScroll: true }); }
 
     return promesa;
   }
@@ -311,6 +311,9 @@
    * Formulario: alta, edición y borrado reales contra el Servlet
    * ------------------------------------------------------------------ */
   document.addEventListener('DOMContentLoaded', function () {
+    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+    window.scrollTo(0, 0);
+
     inicializarMenu();
 
     var form = $('#empleado-form');
@@ -382,7 +385,7 @@
 
         var textoBoton = $('#btn-guardar-texto');
         if (textoBoton) { textoBoton.textContent = 'Actualizar Empleado'; }
-        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        form.scrollIntoView({ block: 'start' });
       });
     });
 
