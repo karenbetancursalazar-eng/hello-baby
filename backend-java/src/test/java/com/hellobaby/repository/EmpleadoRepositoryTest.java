@@ -8,6 +8,7 @@ import com.hellobaby.model.Empleado;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.List;
@@ -25,6 +26,10 @@ class EmpleadoRepositoryTest {
         try (Connection conexion = DatabaseConnection.getConnection();
              Statement sentencia = conexion.createStatement()) {
             sentencia.execute(sql);
+            sentencia.execute(
+                "CREATE TABLE IF NOT EXISTS citas (" +
+                "id_cita BIGINT AUTO_INCREMENT PRIMARY KEY, id_empleado BIGINT)"
+            );
         }
     }
 
@@ -57,15 +62,27 @@ class EmpleadoRepositoryTest {
     }
 
     @Test
-    void bajaLogicaConservaElRegistro() {
+    void eliminarEmpleadoEliminaSusCitas() throws Exception {
         Empleado empleado = repositorio.save(new Empleado(
-            "Baja", "Logica", "8888888888", "baja@hellobaby.com",
-            "+57 300 000 0001", "Barbero", "barberia", LocalDate.of(1990, 2, 2)));
+            "Eliminar", "Cascada", "7777777777", "cascada@hellobaby.com",
+            "+57 300 000 0002", "Barbero", "barberia", LocalDate.of(1991, 3, 3)));
 
-        assertTrue(repositorio.desactivarEmpleado(empleado.getId()));
-        Empleado dadoDeBaja = repositorio.findById(empleado.getId()).orElseThrow();
-        assertTrue(!dadoDeBaja.isActivo(), "El empleado debe quedar inactivo");
+        try (Connection conexion = DatabaseConnection.getConnection();
+             Statement sentencia = conexion.createStatement()) {
+            sentencia.executeUpdate(
+                "INSERT INTO citas (id_empleado) VALUES (" + empleado.getId() + ")"
+            );
+        }
 
         assertTrue(repositorio.deleteById(empleado.getId()));
+        assertTrue(repositorio.findById(empleado.getId()).isEmpty());
+
+        try (Connection conexion = DatabaseConnection.getConnection();
+             Statement sentencia = conexion.createStatement();
+             ResultSet resultado = sentencia.executeQuery(
+                 "SELECT COUNT(*) FROM citas WHERE id_empleado = " + empleado.getId())) {
+            resultado.next();
+            assertEquals(0, resultado.getInt(1), "Las citas del empleado deben eliminarse");
+        }
     }
 }

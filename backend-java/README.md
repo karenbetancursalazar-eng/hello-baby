@@ -63,7 +63,8 @@ $env:PATH=[Environment]::GetEnvironmentVariable('Path','Machine')+';'+[Environme
 
 `EmpleadoRepositoryTest` crea la tabla desde `database/schema.sql` en H2 en
 memoria (modo MySQL) y ejecuta CREATE → READ → UPDATE → LIST → DELETE, además
-de una prueba de baja lógica que verifica que el registro permanece inactivo.
+de una prueba que verifica que al eliminar un empleado también se eliminan sus
+citas.
 
 > Nota no bloqueante: en esta máquina, `mvn clean test` puede fallar porque
 > OneDrive bloquea temporalmente `target/classes/com/hellobaby/config`.
@@ -138,9 +139,10 @@ No se carga `js/app.js` porque interceptaba el formulario y guardaba en
 - Registro real por POST, conversión de fecha a `LocalDate` y mensaje
   `Empleado registrado correctamente.`
 - Edición real por POST y mensaje `Empleado actualizado correctamente.`
-- Baja lógica por POST con confirmación modal: el botón “Dar de baja” ejecuta
-  `UPDATE empleados SET activo = FALSE` y conserva el historial de citas.
-  Mensaje: `Empleado dado de baja correctamente.`
+- Eliminación real por POST con confirmación modal. El repositorio borra primero
+  las citas del empleado y luego el registro, en una sola transacción, para
+  respetar la FK `citas.id_empleado → empleados.id_empleado`.
+  Mensaje: `Empleado eliminado correctamente.`
 - Tabla desde MySQL con búsqueda en vivo, contador y separación por tema.
 - Sin botones falsos: todas las acciones del formulario y de la tabla pasan por
   el Servlet.

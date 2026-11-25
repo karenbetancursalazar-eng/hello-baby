@@ -138,11 +138,11 @@
       return openModal({
         icon: 'danger',
         title: 'Confirmar eliminación',
-        message: '¿Deseas dar de baja al empleado <strong>' + nombre +
-                 '</strong>? Quedará marcado como Inactivo y conservará sus citas en MySQL.',
+        message: '¿Deseas eliminar al empleado <strong>' + nombre +
+                 '</strong>? También se eliminarán sus citas asociadas en MySQL.',
         buttons: [
           { label: 'Cancelar', id: 'cancelar', variant: 'outline' },
-          { label: 'Dar de baja', id: 'eliminar', variant: 'danger' }
+          { label: 'Eliminar', id: 'eliminar', variant: 'danger' }
         ]
       });
     }

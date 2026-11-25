@@ -56,8 +56,8 @@ public class EmpleadoServlet extends HttpServlet {
             request.setAttribute("mensaje", "Empleado registrado correctamente.");
         } else if ("1".equals(request.getParameter("actualizado"))) {
             request.setAttribute("mensaje", "Empleado actualizado correctamente.");
-        } else if ("1".equals(request.getParameter("baja"))) {
-            request.setAttribute("mensaje", "Empleado dado de baja correctamente.");
+        } else if ("1".equals(request.getParameter("eliminado"))) {
+            request.setAttribute("mensaje", "Empleado eliminado correctamente.");
         }
 
         mostrarPagina(request, response);
@@ -82,12 +82,12 @@ public class EmpleadoServlet extends HttpServlet {
         try {
             if ("eliminar".equals(accion)) {
                 long id = parsearId(valores.get("id"));
-                if (!empleadoService.desactivarEmpleado(id)) {
+                if (!empleadoService.eliminarEmpleado(id)) {
                     throw new IllegalArgumentException(
                         "No se encontró el empleado con id " + id + "."
                     );
                 }
-                redirigir(request, response, "baja");
+                redirigir(request, response, "eliminado");
                 return;
             }
 

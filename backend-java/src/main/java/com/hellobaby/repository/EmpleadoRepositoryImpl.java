@@ -35,8 +35,7 @@ public class EmpleadoRepositoryImpl implements EmpleadoRepository {
 
     private static final String SQL_DELETE = "DELETE FROM empleados WHERE id_empleado = ?";
 
-    private static final String SQL_DESACTIVAR =
-        "UPDATE empleados SET activo = FALSE WHERE id_empleado = ?";
+    private static final String SQL_DELETE_CITAS = "DELETE FROM citas WHERE id_empleado = ?";
 
     @Override
     public List<Empleado> findAll() {
@@ -105,25 +104,31 @@ public class EmpleadoRepositoryImpl implements EmpleadoRepository {
 
     @Override
     public boolean deleteById(long id) {
-        try (Connection conexion = DatabaseConnection.getConnection();
-             PreparedStatement sentencia = conexion.prepareStatement(SQL_DELETE)) {
+        try (Connection conexion = DatabaseConnection.getConnection()) {
+            boolean autocommit = conexion.getAutoCommit();
+            conexion.setAutoCommit(false);
+            try {
+                try (PreparedStatement sentenciaCitas = conexion.prepareStatement(SQL_DELETE_CITAS)) {
+                    sentenciaCitas.setLong(1, id);
+                    sentenciaCitas.executeUpdate();
+                }
 
-            sentencia.setLong(1, id);
-            return sentencia.executeUpdate() > 0;
+                int eliminados;
+                try (PreparedStatement sentenciaEmpleado = conexion.prepareStatement(SQL_DELETE)) {
+                    sentenciaEmpleado.setLong(1, id);
+                    eliminados = sentenciaEmpleado.executeUpdate();
+                }
+
+                conexion.commit();
+                return eliminados > 0;
+            } catch (SQLException | RuntimeException excepcion) {
+                conexion.rollback();
+                throw excepcion;
+            } finally {
+                conexion.setAutoCommit(autocommit);
+            }
         } catch (SQLException excepcion) {
             throw new DataAccessException("No fue posible eliminar el empleado con id " + id + ".", excepcion);
-        }
-    }
-
-    @Override
-    public boolean desactivarEmpleado(long id) {
-        try (Connection conexion = DatabaseConnection.getConnection();
-             PreparedStatement sentencia = conexion.prepareStatement(SQL_DESACTIVAR)) {
-
-            sentencia.setLong(1, id);
-            return sentencia.executeUpdate() > 0;
-        } catch (SQLException excepcion) {
-            throw new DataAccessException("No fue posible dar de baja al empleado con id " + id + ".", excepcion);
         }
     }
 
