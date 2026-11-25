@@ -44,6 +44,11 @@ public class EmpleadoService {
         return empleadoRepository.deleteById(id);
     }
 
+    public boolean desactivarEmpleado(long id) {
+        validarId(id);
+        return empleadoRepository.desactivarEmpleado(id);
+    }
+
     private void validarId(long id) {
         if (id <= 0) {
             throw new IllegalArgumentException("El id debe ser mayor que cero.");

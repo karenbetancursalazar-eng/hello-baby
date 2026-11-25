@@ -301,9 +301,9 @@
                       Editar
                     </button>
                     <button type="button" class="btn btn-danger btn-sm" data-eliminar="<%= empleado.getId() %>"
-                            aria-label="Eliminar <%= escapar(nombreCompleto) %>">
+                            aria-label="Dar de baja <%= escapar(nombreCompleto) %>">
                       <svg class="icon icon-sm" aria-hidden="true"><use href="#i-off"/></svg>
-                      Eliminar
+                      Dar de baja
                     </button>
                   </td>
                 </tr>

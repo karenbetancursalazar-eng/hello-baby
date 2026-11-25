@@ -17,4 +17,7 @@ public interface EmpleadoRepository {
     boolean update(Empleado empleado);
 
     boolean deleteById(long id);
+
+    /** Da de baja al empleado conservando el registro y sus citas. */
+    boolean desactivarEmpleado(long id);
 }

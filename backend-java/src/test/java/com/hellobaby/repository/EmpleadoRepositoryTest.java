@@ -55,4 +55,17 @@ class EmpleadoRepositoryTest {
         assertTrue(repositorio.deleteById(guardado.getId()));
         assertTrue(repositorio.findById(guardado.getId()).isEmpty());
     }
+
+    @Test
+    void bajaLogicaConservaElRegistro() {
+        Empleado empleado = repositorio.save(new Empleado(
+            "Baja", "Logica", "8888888888", "baja@hellobaby.com",
+            "+57 300 000 0001", "Barbero", "barberia", LocalDate.of(1990, 2, 2)));
+
+        assertTrue(repositorio.desactivarEmpleado(empleado.getId()));
+        Empleado dadoDeBaja = repositorio.findById(empleado.getId()).orElseThrow();
+        assertTrue(!dadoDeBaja.isActivo(), "El empleado debe quedar inactivo");
+
+        assertTrue(repositorio.deleteById(empleado.getId()));
+    }
 }

@@ -62,8 +62,8 @@ $env:PATH=[Environment]::GetEnvironmentVariable('Path','Machine')+';'+[Environme
 ```
 
 `EmpleadoRepositoryTest` crea la tabla desde `database/schema.sql` en H2 en
-memoria (modo MySQL) y ejecuta CREATE → READ → UPDATE → LIST → DELETE con el
-mismo código JDBC.
+memoria (modo MySQL) y ejecuta CREATE → READ → UPDATE → LIST → DELETE, además
+de una prueba de baja lógica que verifica que el registro permanece inactivo.
 
 > Nota no bloqueante: en esta máquina, `mvn clean test` puede fallar porque
 > OneDrive bloquea temporalmente `target/classes/com/hellobaby/config`.
@@ -72,7 +72,7 @@ mismo código JDBC.
 Resultado verificado:
 
 ```
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 ```
 
 ## 3. Preparar MySQL (XAMPP)
@@ -138,8 +138,9 @@ No se carga `js/app.js` porque interceptaba el formulario y guardaba en
 - Registro real por POST, conversión de fecha a `LocalDate` y mensaje
   `Empleado registrado correctamente.`
 - Edición real por POST y mensaje `Empleado actualizado correctamente.`
-- Eliminación real por POST con confirmación modal (implementada; no se ejecutó
-  para no borrar registros).
+- Baja lógica por POST con confirmación modal: el botón “Dar de baja” ejecuta
+  `UPDATE empleados SET activo = FALSE` y conserva el historial de citas.
+  Mensaje: `Empleado dado de baja correctamente.`
 - Tabla desde MySQL con búsqueda en vivo, contador y separación por tema.
 - Sin botones falsos: todas las acciones del formulario y de la tabla pasan por
   el Servlet.
