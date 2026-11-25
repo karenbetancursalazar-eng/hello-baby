@@ -2,19 +2,22 @@ Pruebas de la capa web - GA7-220501096-AA2-EV02
 URL: http://localhost:8080/hello-baby-backend/empleados
 Fecha: 25/11/2026
 
+Se corrigio el modal: se agrego la clase "open" para que el mensaje
+de exito sea visible. Por eso las capturas ahora muestran el aviso.
+
 1. Registro
-   Empleado temporal con cedula 9999999905, area Barberia y rol Barbero.
-   Mensaje: Empleado registrado correctamente.
+   Empleado temporal con cedula 9999999906, area Barberia y rol Barbero.
+   Mensaje visible: Empleado registrado correctamente.
    Captura: 01_registrar.png
 
 2. Edicion
    Se cambio el nombre a "Captura Editada" desde el boton Editar.
-   Mensaje: Empleado actualizado correctamente.
+   Mensaje visible: Empleado actualizado correctamente.
    Captura: 02_editar.png
 
 3. Eliminacion
    Confirmacion desde el boton Eliminar.
-   Mensaje: Empleado eliminado correctamente.
+   Mensaje visible: Empleado eliminado correctamente.
    Captura: 03_eliminar.png
 
 El registro temporal quedo eliminado. La base quedo con 5 empleados y 3 citas.

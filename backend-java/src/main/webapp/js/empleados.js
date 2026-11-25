@@ -82,6 +82,7 @@
     document.addEventListener('keydown', alPresionarTecla);
     document.body.classList.add('no-scroll');
     document.body.appendChild(modal);
+    modal.classList.add('open');
 
     var primerBoton = contenedorBotones.querySelector('button');
     if (primerBoton) { primerBoton.focus({ preventScroll: true }); }
