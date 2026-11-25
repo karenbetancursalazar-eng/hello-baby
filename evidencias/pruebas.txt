@@ -3,12 +3,12 @@ URL: http://localhost:8080/hello-baby-backend/empleados
 Fecha: 25/11/2026
 
 1. Registro
-   Empleado temporal con cedula 9999999901, area Barberia y rol Barbero.
+   Empleado temporal con cedula 9999999905, area Barberia y rol Barbero.
    Mensaje: Empleado registrado correctamente.
    Captura: 01_registrar.png
 
 2. Edicion
-   Se cambio el nombre a "Evidencia Editada" desde el boton Editar.
+   Se cambio el nombre a "Captura Editada" desde el boton Editar.
    Mensaje: Empleado actualizado correctamente.
    Captura: 02_editar.png
 
@@ -19,3 +19,4 @@ Fecha: 25/11/2026
 
 El registro temporal quedo eliminado. La base quedo con 5 empleados y 3 citas.
 Captura 00_formulario.png muestra el formulario con los campos Area y Rol.
+Las capturas se tomaron en Chrome con ventana de 1365x1600.
