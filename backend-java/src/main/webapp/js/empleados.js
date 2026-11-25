@@ -6,6 +6,8 @@
 (function () {
   'use strict';
 
+  window.__empleadosJsCargado = true;
+
   var THEME_KEY = 'hello-baby-theme';
   var ROLES_POR_TEMA = { peluqueria: 'Estilista', barberia: 'Barbero' };
 

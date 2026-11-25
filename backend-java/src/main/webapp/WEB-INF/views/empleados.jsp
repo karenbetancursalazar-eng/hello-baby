@@ -53,7 +53,7 @@
   <meta name="description" content="Hello Baby — Gestión de empleados. Registro de nuevo empleado.">
   <title>Empleados · Hello Baby</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23E91E63' d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/></svg>">
-  <link rel="stylesheet" href="<%= ctx %>/css/styles.css">
+  <link rel="stylesheet" href="<%= ctx %>/css/styles.css?v=2">
 </head>
 <body data-page="empleados">
 
@@ -375,6 +375,24 @@
     <symbol id="i-baby" viewBox="0 0 24 24"><circle cx="12" cy="9" r="4.5"/><path d="M7.5 14.5a5 5 0 0 0 9 0"/><path d="M12 14.5V18"/></symbol>
   </svg>
 
-  <script src="<%= ctx %>/js/empleados.js"></script>
+  <script src="<%= ctx %>/js/empleados.js?v=2"></script>
+  <script>
+    // Respaldo: si el JS principal no se cargó, el botón Eliminar sigue funcionando.
+    if (!window.__empleadosJsCargado) {
+      document.querySelectorAll('[data-eliminar]').forEach(function (boton) {
+        boton.addEventListener('click', function () {
+          var fila = boton.closest('tr');
+          if (!fila) { return; }
+          var nombre = (fila.getAttribute('data-nombres') || '') + ' ' +
+                       (fila.getAttribute('data-apellidos') || '');
+          if (!window.confirm('¿Eliminar a ' + nombre +
+              '? También se eliminarán sus citas asociadas.')) { return; }
+          var form = document.getElementById('form-eliminar');
+          document.getElementById('eliminar-id').value = fila.getAttribute('data-id');
+          form.submit();
+        });
+      });
+    }
+  </script>
 </body>
 </html>
