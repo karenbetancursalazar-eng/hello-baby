@@ -1,0 +1,16 @@
+Enlace del repositorio del proyecto Hello Baby:
+
+https://github.com/karenbetancursalazar-eng/hello-baby
+
+Código de AA3-EV01:
+https://github.com/karenbetancursalazar-eng/hello-baby/tree/main/backend-springboot
+
+Contenido versionado:
+- Prototipo web (HTML/CSS/JS) de Hello Baby.
+- Módulo Empleados con JDBC y operaciones CRUD (insertar, consultar, actualizar y eliminar).
+- Módulo Empleados con Spring Boot MVC, JdbcTemplate y transacciones (AA3-EV01).
+- Scripts SQL, estándares de codificación, plan de trabajo, historias de usuario,
+  casos de uso y diagrama de clases.
+
+Commit del código AA3-EV01: 4df6c75
+Rama: main
