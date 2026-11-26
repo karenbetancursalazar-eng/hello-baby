@@ -13,13 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-/**
- * Controlador MVC del modulo Empleados.
- *
- * <p>El patron POST-Redirect-GET evita el reenvio duplicado del formulario al
- * recargar la pagina. Los mensajes se pasan como atributos flash y la vista
- * JSP se resuelve mediante el prefijo configurado en {@code application.properties}.</p>
- */
+/** Controlador MVC del módulo Empleados: lista, registra, edita y elimina. */
 @Controller
 public class EmpleadoController {
 
@@ -28,24 +22,19 @@ public class EmpleadoController {
     /**
      * Crea el controlador con el servicio inyectado.
      *
-     * @param empleadoService servicio del modulo Empleados
+     * @param empleadoService servicio del módulo Empleados
      */
     public EmpleadoController(EmpleadoService empleadoService) {
         this.empleadoService = empleadoService;
     }
 
-    /** Redirige la raiz de la aplicacion a la pantalla de empleados. */
+    /** Redirige la raíz a la pantalla de empleados. */
     @GetMapping("/")
     public String inicio() {
         return "redirect:/empleados";
     }
 
-    /**
-     * Prepara el modelo para la pantalla de empleados.
-     *
-     * @param modelo modelo de la vista
-     * @return nombre logico de la vista JSP
-     */
+    /** Prepara el modelo de la pantalla de empleados. */
     @GetMapping("/empleados")
     public String listar(Model modelo) {
         List<Empleado> empleados = empleadoService.listarEmpleados();
@@ -61,13 +50,7 @@ public class EmpleadoController {
         return "empleados";
     }
 
-    /**
-     * Registra un empleado nuevo.
-     *
-     * @param parametros datos enviados por el formulario
-     * @param redirect atributos flash para la siguiente peticion
-     * @return redireccion a la lista de empleados
-     */
+    /** Registra un empleado nuevo. */
     @PostMapping(path = "/empleados", params = "accion=crear")
     public String crear(@RequestParam Map<String, String> parametros,
                         RedirectAttributes redirect) {
@@ -80,13 +63,7 @@ public class EmpleadoController {
         return "redirect:/empleados";
     }
 
-    /**
-     * Actualiza un empleado existente.
-     *
-     * @param parametros datos enviados por el formulario
-     * @param redirect atributos flash para la siguiente peticion
-     * @return redireccion a la lista de empleados
-     */
+    /** Actualiza un empleado existente. */
     @PostMapping(path = "/empleados", params = "accion=actualizar")
     public String actualizar(@RequestParam Map<String, String> parametros,
                              RedirectAttributes redirect) {
@@ -100,13 +77,7 @@ public class EmpleadoController {
         return "redirect:/empleados";
     }
 
-    /**
-     * Elimina un empleado y sus citas asociadas.
-     *
-     * @param parametros datos enviados por el formulario oculto
-     * @param redirect atributos flash para la siguiente peticion
-     * @return redireccion a la lista de empleados
-     */
+    /** Elimina un empleado y sus citas asociadas. */
     @PostMapping(path = "/empleados", params = "accion=eliminar")
     public String eliminar(@RequestParam Map<String, String> parametros,
                            RedirectAttributes redirect) {
@@ -120,7 +91,7 @@ public class EmpleadoController {
         return "redirect:/empleados";
     }
 
-    /** Carga los atributos flash de error y conserva lo digitado por el usuario. */
+    /** Carga el error y conserva lo digitado por el usuario. */
     private void rechazar(RedirectAttributes redirect, Map<String, String> parametros,
                           RuntimeException excepcion) {
         String mensaje = excepcion.getMessage();
@@ -129,7 +100,7 @@ public class EmpleadoController {
         redirect.addFlashAttribute("form", new HashMap<>(parametros));
     }
 
-    /** Convierte los parametros HTTP en la entidad de dominio. */
+    /** Convierte los parámetros HTTP en la entidad de dominio. */
     private Empleado construirEmpleado(Map<String, String> parametros, long id) {
         Empleado empleado = new Empleado();
         empleado.setId(id);
@@ -148,7 +119,7 @@ public class EmpleadoController {
         return empleado;
     }
 
-    /** Obtiene un parametro recortado, o una cadena vacia si no viene. */
+    /** Obtiene un parámetro recortado, o una cadena vacía si no viene. */
     private String valor(Map<String, String> parametros, String clave) {
         String contenido = parametros.get(clave);
         return contenido == null ? "" : contenido.trim();

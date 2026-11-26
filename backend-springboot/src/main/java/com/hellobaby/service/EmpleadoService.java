@@ -9,13 +9,7 @@ import java.util.regex.Pattern;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Reglas de negocio del modulo Empleados.
- *
- * <p>Usa transacciones declarativas de Spring: {@code @Transactional} en los
- * metodos que escriben garantiza que el borrado de citas y de empleados se
- * confirme o se revierta como una sola unidad.</p>
- */
+/** Reglas de negocio y validaciones del módulo Empleados. */
 @Service
 public class EmpleadoService {
 
@@ -26,7 +20,7 @@ public class EmpleadoService {
     private final EmpleadoRepository empleadoRepository;
 
     /**
-     * Crea el servicio con el repositorio inyectado por Spring.
+     * Crea el servicio con el repositorio inyectado.
      *
      * @param empleadoRepository repositorio de empleados
      */
@@ -35,46 +29,27 @@ public class EmpleadoService {
             Objects.requireNonNull(empleadoRepository, "El repositorio es obligatorio.");
     }
 
-    /**
-     * Lista todos los empleados.
-     *
-     * @return lista de empleados
-     */
+    /** Lista todos los empleados. */
     @Transactional(readOnly = true)
     public List<Empleado> listarEmpleados() {
         return empleadoRepository.findAll();
     }
 
-    /**
-     * Busca un empleado por id.
-     *
-     * @param id identificador
-     * @return el empleado o un Optional vacio
-     */
+    /** Busca un empleado por id. */
     @Transactional(readOnly = true)
     public Optional<Empleado> buscarEmpleado(long id) {
         validarId(id);
         return empleadoRepository.findById(id);
     }
 
-    /**
-     * Registra un empleado despues de validarlo.
-     *
-     * @param empleado datos a registrar
-     * @return el empleado con el id generado
-     */
+    /** Registra un empleado después de validarlo. */
     @Transactional
     public Empleado registrarEmpleado(Empleado empleado) {
         validarEmpleado(empleado);
         return empleadoRepository.save(empleado);
     }
 
-    /**
-     * Actualiza un empleado despues de validarlo.
-     *
-     * @param empleado datos a actualizar
-     * @return {@code true} si se actualizo el registro
-     */
+    /** Actualiza un empleado después de validarlo. */
     @Transactional
     public boolean actualizarEmpleado(Empleado empleado) {
         validarEmpleado(empleado);
@@ -82,12 +57,7 @@ public class EmpleadoService {
         return empleadoRepository.update(empleado);
     }
 
-    /**
-     * Elimina un empleado y sus citas en una sola transaccion.
-     *
-     * @param id identificador del empleado
-     * @return {@code true} si se elimino el registro
-     */
+    /** Elimina un empleado y sus citas en la misma transacción. */
     @Transactional
     public boolean eliminarEmpleado(long id) {
         validarId(id);
@@ -100,7 +70,7 @@ public class EmpleadoService {
         }
     }
 
-    /** Valida los campos obligatorios y los formatos de cedula y correo. */
+    /** Valida campos obligatorios y formatos de cédula y correo. */
     private void validarEmpleado(Empleado empleado) {
         Objects.requireNonNull(empleado, "El empleado es obligatorio.");
         validarTexto(empleado.getNombres(), "Nombres");

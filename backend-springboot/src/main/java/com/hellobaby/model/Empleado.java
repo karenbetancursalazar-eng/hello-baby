@@ -4,11 +4,9 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 /**
- * Entidad del dominio que representa un empleado del establecimiento.
+ * Entidad que representa un empleado del establecimiento.
  *
- * <p>Corresponde al objeto "empleados" del diseno original y a la tabla
- * {@code empleados} de MySQL. Se mantiene como POJO para conservar el
- * diagrama de clases de la evidencia anterior.</p>
+ * <p>Corresponde a la tabla {@code empleados} y al objeto del diseño original.</p>
  */
 public class Empleado {
 
@@ -122,7 +120,7 @@ public class Empleado {
         this.activo = activo;
     }
 
-    /** Representacion legible del empleado para logs y depuracion. */
+    /** Representación legible del empleado para depuración. */
     @Override
     public String toString() {
         return String.format("%d | %s %s | %s | %s | %s | %s",

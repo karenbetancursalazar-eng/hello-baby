@@ -12,12 +12,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 
-/**
- * Pruebas del repositorio JDBC con Spring y una base H2 en memoria.
- *
- * <p>{@code @JdbcTest} crea el {@link JdbcTemplate}, ejecuta
- * {@code schema-h2.sql} y gestiona la transaccion de cada prueba.</p>
- */
+/** Pruebas del repositorio JDBC con H2 en memoria. */
 @JdbcTest
 @ActiveProfiles("test")
 @Import(JdbcEmpleadoRepository.class)
@@ -29,7 +24,7 @@ class EmpleadoRepositoryTest {
     @Autowired
     private EmpleadoRepository repositorio;
 
-    /** Verifica el ciclo completo de registro, busqueda, edicion y borrado. */
+    /** Verifica el ciclo de registro, búsqueda, edición y borrado. */
     @Test
     @DisplayName("CRUD completo de un empleado")
     void crudCompleto() {
@@ -50,9 +45,9 @@ class EmpleadoRepositoryTest {
         assertThat(repositorio.findById(guardado.getId())).isEmpty();
     }
 
-    /** Verifica que al eliminar un empleado tambien se borren sus citas. */
+    /** Verifica que al eliminar un empleado se borren sus citas. */
     @Test
-    @DisplayName("La eliminacion en cascada borra las citas del empleado")
+    @DisplayName("La eliminación en cascada borra las citas del empleado")
     void eliminacionEnCascada() {
         Empleado guardado = repositorio.save(new Empleado("Cascada", "Spring", "8888888802",
             "cascada.spring@hellobaby.com", "3000000002", "Barbero", "barberia",

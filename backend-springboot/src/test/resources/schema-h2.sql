@@ -1,4 +1,4 @@
--- Esquema usado solo por las pruebas automaticas con H2.
+-- Esquema usado solo por las pruebas automáticas con H2.
 CREATE TABLE IF NOT EXISTS empleados (
     id_empleado BIGINT AUTO_INCREMENT PRIMARY KEY,
     nombres VARCHAR(100) NOT NULL,

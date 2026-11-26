@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <!-- Spring Boot gestiona las versiones de las dependencias del framework. -->
+  <!-- Spring Boot gestiona las versiones de las dependencias. -->
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -16,8 +16,8 @@
   <artifactId>hello-baby-springboot</artifactId>
   <version>1.0.0</version>
   <packaging>war</packaging>
-  <name>Hello Baby - Modulo Empleados con Spring Boot</name>
-  <description>Codificacion del modulo Empleados usando Spring Boot MVC y JDBC.</description>
+  <name>Hello Baby - Módulo Empleados con Spring Boot</name>
+  <description>Codificación del módulo Empleados con Spring Boot MVC y JDBC.</description>
 
   <properties>
     <java.version>17</java.version>
@@ -25,13 +25,13 @@
   </properties>
 
   <dependencies>
-    <!-- MVC, Inversion de control y Tomcat embebido. -->
+    <!-- Spring MVC, inyección de dependencias y Tomcat embebido. -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
 
-    <!-- Acceso a datos con JdbcTemplate y transacciones declarativas. -->
+    <!-- Acceso a datos con JdbcTemplate y transacciones. -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-jdbc</artifactId>
@@ -80,7 +80,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
-      <!-- El entorno local usa Java 25; Byte Buddy permite esa version en modo experimental. -->
+      <!-- Compatibilidad con JDK recientes durante las pruebas. -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>

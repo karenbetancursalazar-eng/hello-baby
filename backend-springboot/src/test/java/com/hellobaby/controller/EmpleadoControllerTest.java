@@ -20,11 +20,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-/**
- * Pruebas del controlador MVC con MockMvc y el servicio simulado.
- *
- * <p>Valida el patron POST-Redirect-GET y el modelo que recibe la vista JSP.</p>
- */
+/** Pruebas del controlador MVC con MockMvc y el servicio simulado. */
 @WebMvcTest(EmpleadoController.class)
 class EmpleadoControllerTest {
 
@@ -47,7 +43,7 @@ class EmpleadoControllerTest {
             .andExpect(model().attributeExists("empleados", "form"));
     }
 
-    /** Un registro correcto debe redirigir para evitar reenvios duplicados. */
+    /** Un registro correcto debe redirigir para evitar reenvíos duplicados. */
     @Test
     @DisplayName("POST crear redirige a la lista")
     void registrarRedirige() throws Exception {
@@ -56,10 +52,10 @@ class EmpleadoControllerTest {
 
         mockMvc.perform(post("/empleados")
                 .param("accion", "crear")
-                .param("nombres", "Evidencia")
+                .param("nombres", "Prueba")
                 .param("apellidos", "AA3")
                 .param("cedula", "9999999999")
-                .param("correo", "evidencia.aa3@hellobaby.com")
+                .param("correo", "prueba.aa3@hellobaby.com")
                 .param("whatsapp", "3001234567")
                 .param("rol", "Barbero")
                 .param("tipo", "barberia")
@@ -71,7 +67,7 @@ class EmpleadoControllerTest {
         verify(empleadoService).registrarEmpleado(any(Empleado.class));
     }
 
-    /** La eliminacion tambien sigue el patron POST-Redirect-GET. */
+    /** La eliminación también redirige a la lista. */
     @Test
     @DisplayName("POST eliminar redirige a la lista")
     void eliminarRedirige() throws Exception {

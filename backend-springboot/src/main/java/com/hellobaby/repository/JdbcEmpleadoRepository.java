@@ -15,13 +15,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-/**
- * Implementacion del repositorio con {@link JdbcTemplate} de Spring.
- *
- * <p>Reemplaza la apertura manual de conexiones de la version anterior por
- * la gestion de recursos y transacciones del framework. Las consultas usan
- * marcadores {@code ?} para evitar inyeccion SQL.</p>
- */
+/** Implementación del repositorio con {@link JdbcTemplate} y consultas parametrizadas. */
 @Repository
 public class JdbcEmpleadoRepository implements EmpleadoRepository {
 
@@ -50,11 +44,7 @@ public class JdbcEmpleadoRepository implements EmpleadoRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
-    /**
-     * Crea el repositorio con el {@code JdbcTemplate} configurado por Spring.
-     *
-     * @param jdbcTemplate plantilla JDBC inyectada por el contenedor
-     */
+    /** Crea el repositorio con el {@code JdbcTemplate} inyectado. */
     public JdbcEmpleadoRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
@@ -97,13 +87,12 @@ public class JdbcEmpleadoRepository implements EmpleadoRepository {
 
     @Override
     public boolean deleteById(long id) {
-        // Ambas sentencias forman parte de la misma transaccion declarativa
-        // del servicio, por lo que no quedan citas huerfanas.
+        // Las dos sentencias comparten la transacción declarativa del servicio.
         jdbcTemplate.update(SQL_DELETE_CITAS, id);
         return jdbcTemplate.update(SQL_DELETE, id) > 0;
     }
 
-    /** Asigna los nueve parametros comunes de INSERT y UPDATE. */
+    /** Asigna los nueve parámetros comunes de INSERT y UPDATE. */
     private static void asignarParametros(PreparedStatement sentencia, Empleado empleado,
                                           int indiceInicial) throws SQLException {
         sentencia.setString(indiceInicial, empleado.getNombres());
