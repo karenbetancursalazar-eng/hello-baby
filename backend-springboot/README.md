@@ -6,6 +6,8 @@ JdbcTemplate y transacciones declarativas. Se conservan el diseño original
 `hello_baby`.
 
 El trabajo se realizó en una carpeta separada para no modificar el WAR de AA2.
+La migración sigue el plan por capas de la EV02: vista, controlador, servicio,
+repositorio y modelo. Los documentos y scripts citados abajo se incluyen en este ZIP.
 
 ## Artefactos usados
 
