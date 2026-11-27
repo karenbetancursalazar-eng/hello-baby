@@ -17,7 +17,7 @@ Rama: main
 
 Evidencia GA7-220501096-AA3-EV02:
 - Documento: KARENPATRICIABETANCURSALAZAR_AA3_EV02_Documento.pdf
-- Video: KARENPATRICIABETANCURSALAZAR_AA3_EV02_Video.mp4
+- Video: KARENPATRICIABETANCURSALAZAR_AA3-EV02.mp4
 - Repositorio: https://github.com/karenbetancursalazar-eng/hello-baby
 - Carpeta del módulo: backend-springboot
 - Commit de la EV02: 4897fe4
