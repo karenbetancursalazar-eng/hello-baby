@@ -1,8 +1,8 @@
 /**
  * Servicio de comunicación con el backend de empleados.
  *
- *Este módulo concentra las peticiones HTTP (fetch). Mientras el backend
- * expone los endpoint REST definitivos, se usa un adaptador local con
+ * Este módulo concentra las peticiones HTTP (fetch). Mientras el backend
+ * expone los endpoints REST definitivos, se usa un adaptador local con
  * localStorage para que el componente front-end pueda probarse.
  * Para conectarlo al backend real basta cambiar USE_MOCK a false.
  */
