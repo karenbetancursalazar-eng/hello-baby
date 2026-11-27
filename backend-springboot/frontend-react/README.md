@@ -63,6 +63,15 @@ admin / recepcion / barbero / estilista
 - CSS con variables de tema y clases semánticas.
 - Artefactos de apoyo en `artefactos/`.
 
+## Temas visuales
+
+La paleta es la misma del prototipo de Hello Baby (`css/styles.css`):
+
+- **Peluquería** (claro): fondo `#FFF5F8`, acento rosa `#E91E63`, acento fuerte `#C2185B`, header `#131620`.
+- **Barbería** (oscuro): fondo `#0D1117`, acento naranja `#FF6B00`, acento fuerte `#E85F00`, header `#0B0E13`.
+
+El logotipo «hello baby» usa la tipografía cursiva `Dancing Script` en negrita e itálica, igual que en el prototipo. La preferencia de tema se guarda en `localStorage` con la clave `hello-baby-theme`.
+
 ## Estado de la integración con el backend
 
 El servicio `src/services/empleadosApi.js` usa `fetch` cuando la constante `USE_MOCK` es `false`. Mientras el backend expone sus endpoints REST definitivos, el valor `true` permite ejecutar y probar el front-end con `localStorage`. Para conectarlo al backend Spring Boot solo se debe ajustar `API_BASE` a la URL real.

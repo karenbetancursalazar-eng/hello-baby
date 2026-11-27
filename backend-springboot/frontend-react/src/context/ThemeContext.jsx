@@ -5,7 +5,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 const ThemeContext = createContext(null);
-const CLAVE_ALMACENAMIENTO = 'hello-baby-tema';
+const CLAVE_ALMACENAMIENTO = 'hello-baby-theme';
 
 const TEMAS_VALIDOS = ['peluqueria', 'barberia'];
 

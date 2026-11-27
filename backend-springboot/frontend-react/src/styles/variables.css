@@ -1,36 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Dancing+Script:wght@700&display=swap');
+
 /**
- * Variables de tema de Hello Baby.
- * El atributo data-theme en <html> alterna entre Peluquería y Barbería
- * sin duplicar componentes ni hojas de estilo completas.
+ * Paleta oficial de Hello Baby, tomada de css/styles.css del prototipo.
+ * Peluquería = tema claro con acento rosa #E91E63.
+ * Barbería   = tema oscuro con acento naranja #FF6B00.
+ * El atributo data-theme en <html> alterna entre ambos ambientes sin
+ * duplicar componentes ni hojas de estilo completas.
  */
 
 :root,
 :root[data-theme='peluqueria'] {
+  /* Peluquería (claro) */
   --color-primario: #e91e63;
-  --color-primario-oscuro: #ad1457;
-  --color-acento: #f8bbd0;
-  --color-fondo: #fff7fa;
+  --color-primario-oscuro: #c2185b;
+  --color-acento: #fbeaf0;
+  --color-acento-texto: #c2185b;
+  --color-acento-contraste: #ffffff;
+  --color-sombra-acento: rgba(233, 30, 99, 0.1);
+  --color-fondo: #fff5f8;
   --color-superficie: #ffffff;
-  --color-texto: #2b2b2b;
-  --color-texto-suave: #6f6f6f;
-  --color-borde: #f2ccdc;
+  --color-superficie-2: #fbeaf0;
+  --color-texto: #33202a;
+  --color-texto-suave: #7e5c66;
+  --color-texto-atenuado: #a48b93;
+  --color-borde: #f0dfe6;
+  --color-header-fondo: #131620;
+  --color-header-texto: #f5f7fa;
+  --color-exito: #1e8e3e;
+  --color-exito-fondo: #e7f6ec;
+  --color-exito-borde: #bfe3cb;
   --color-error: #c62828;
-  --color-exito: #2e7d32;
+  --color-error-fondo: #fdecea;
+  --color-error-borde: #f3c4c0;
   --color-peligro: #c62828;
+  --color-modal-overlay: rgba(51, 19, 33, 0.55);
   --radio: 12px;
-  --sombra: 0 8px 24px rgba(43, 43, 43, 0.08);
+  --sombra: 0 8px 24px rgba(51, 32, 42, 0.08);
 }
 
 :root[data-theme='barberia'] {
-  --color-primario: #263238;
-  --color-primario-oscuro: #11191d;
-  --color-acento: #90a4ae;
-  --color-fondo: #eceff1;
-  --color-superficie: #ffffff;
-  --color-texto: #263238;
-  --color-texto-suave: #607d8b;
-  --color-borde: #cfd8dc;
-  --color-error: #b71c1c;
-  --color-exito: #2e7d32;
-  --color-peligro: #b71c1c;
+  /* Barbería (oscuro) */
+  --color-primario: #ff6b00;
+  --color-primario-oscuro: #e85f00;
+  --color-acento: #1b222c;
+  --color-acento-texto: #ff6b00;
+  --color-acento-contraste: #0d1117;
+  --color-sombra-acento: rgba(255, 107, 0, 0.14);
+  --color-fondo: #0d1117;
+  --color-superficie: #161b22;
+  --color-superficie-2: #1b222c;
+  --color-texto: #e6edf3;
+  --color-texto-suave: #9da7b3;
+  --color-texto-atenuado: #6e7681;
+  --color-borde: #252c36;
+  --color-header-fondo: #0b0e13;
+  --color-header-texto: #f5f7fa;
+  --color-exito: #3fb950;
+  --color-exito-fondo: #12261a;
+  --color-exito-borde: #245c33;
+  --color-error: #f85149;
+  --color-error-fondo: #25171a;
+  --color-error-borde: #6e2a27;
+  --color-peligro: #f85149;
+  --color-modal-overlay: rgba(5, 8, 12, 0.65);
+  --radio: 12px;
+  --sombra: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
