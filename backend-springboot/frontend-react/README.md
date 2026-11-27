@@ -2,6 +2,8 @@
 
 Evidencia **GA7-220501096-AA4-EV03** — *Componente front-end del proyecto formativo y proyectos de clase*.
 
+**Demostración publicada:** https://karenbetancursalazar-eng.github.io/hello-baby/
+
 ## Descripción
 
 Este proyecto contiene la codificación del módulo **Empleados** de Hello Baby usando **React + Vite**. Los componentes implementados corresponden a los definidos en la evidencia **AA4-EV02** y a los artefactos previos del proyecto (historias de usuario, casos de uso, prototipo, diagrama de clases y estándares de codificación).

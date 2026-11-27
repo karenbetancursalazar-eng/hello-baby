@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import App from './App.jsx';
 import { ThemeProvider } from './context/ThemeContext.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
@@ -16,9 +16,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* El tema y la autenticación están disponibles para toda la app */}
     <ThemeProvider>
       <AuthProvider>
-        <BrowserRouter>
+        {/* HashRouter permite publicar en GitHub Pages sin configurar reescrituras */}
+        <HashRouter>
           <App />
-        </BrowserRouter>
+        </HashRouter>
       </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>,
