@@ -6,11 +6,20 @@
 
 export const MENSAJES = {
   obligatorio: 'Este campo es obligatorio.',
+  nombre: 'El nombre solo debe contener letras, espacios, apóstrofos, puntos o guiones.',
   cedula: 'La cédula debe contener solo números (8 a 10 dígitos).',
   correo: 'Ingresa un correo electrónico válido, por ejemplo nombre@correo.com.',
   whatsapp: 'Ingresa un número de WhatsApp válido.',
   fecha: 'Ingresa una fecha de nacimiento válida.',
 };
+
+/**
+ * Valida nombres y apellidos: letras (incluye tildes y ñ), espacios,
+ * apóstrofos, puntos y guiones. Rechaza números y símbolos como Ana123.
+ */
+export function esNombreValido(valor) {
+  return /^[\p{L}][\p{L}\s'.-]*$/u.test(valor.trim());
+}
 
 /** Valida la cédula de ciudadanía: 8 a 10 dígitos numéricos. */
 export function esCedulaValida(valor) {
@@ -44,7 +53,11 @@ export function validarEmpleado(formulario) {
   const errores = {};
 
   if (!formulario.nombres.trim()) errores.nombres = MENSAJES.obligatorio;
+  else if (!esNombreValido(formulario.nombres)) errores.nombres = MENSAJES.nombre;
+
   if (!formulario.apellidos.trim()) errores.apellidos = MENSAJES.obligatorio;
+  else if (!esNombreValido(formulario.apellidos)) errores.apellidos = MENSAJES.nombre;
+
   if (!formulario.cedula.trim()) errores.cedula = MENSAJES.obligatorio;
   else if (!esCedulaValida(formulario.cedula.trim())) errores.cedula = MENSAJES.cedula;
 

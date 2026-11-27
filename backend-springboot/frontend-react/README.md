@@ -46,6 +46,7 @@ admin / recepcion / barbero / estilista
 ## Validaciones aplicadas
 
 - Campos obligatorios.
+- Nombres y apellidos: solo letras (con tildes y ñ), espacios, apóstrofos, puntos y guiones; se rechazan números y símbolos.
 - Cédula: solo números, 8 a 10 dígitos, única.
 - Correo con formato válido.
 - WhatsApp con 7 a 15 caracteres permitidos.
