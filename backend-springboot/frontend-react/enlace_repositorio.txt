@@ -13,5 +13,5 @@ Contenido versionado:
 - Validaciones de cédula, correo, WhatsApp, fecha y campos obligatorios.
 - Artefactos de apoyo: historias de usuario, casos de uso, estándares y scripts SQL.
 
-Commit de la EV03: d1c4961
+Commit de la EV03: 5775049
 Rama: main
