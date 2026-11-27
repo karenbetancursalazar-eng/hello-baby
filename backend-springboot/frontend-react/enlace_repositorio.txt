@@ -10,7 +10,7 @@ Contenido versionado:
 - Componentes definidos en AA4-EV02 (Layout, Navbar, Sidebar, ThemeSelector,
   EmpleadoForm, DataTable, SearchBar, ConfirmModal, Alert, ThemeContext,
   AuthContext y ProtectedRoute).
-- Validaciones de cédula, correo, WhatsApp, fecha y campos obligatorios.
+- Validaciones de nombres y apellidos, cédula, correo, WhatsApp, fecha y campos obligatorios.
 - Artefactos de apoyo: historias de usuario, casos de uso, estándares y scripts SQL.
 
 Commit de la EV03: 5775049
