@@ -22,3 +22,10 @@ Evidencia GA7-220501096-AA3-EV02:
 - Carpeta del módulo: backend-springboot
 - Commit de la EV02: 4897fe4
 Rama: main
+
+Evidencia GA7-220501096-AA5-EV01:
+- Servicio web de registro e inicio de sesión: backend-springboot
+- Endpoints: POST /api/auth/register y POST /api/auth/login
+- Repositorio: https://github.com/karenbetancursalazar-eng/hello-baby
+- Commit del código AA5-EV01: 34454c8
+Rama: main
