@@ -16,8 +16,8 @@ Commit del código AA3-EV01: 4df6c75
 Rama: main
 
 Evidencia GA7-220501096-AA3-EV02:
-- Documento: KARENPATRICIABETANCURSALAZAR_AA3_EV02_Documento.docx
-- Video: WhatsApp Video 2026-11-23 at 9.27.58 AM.mp4
+- Documento: KARENPATRICIABETANCURSALAZAR_AA3_EV02_Documento.pdf
+- Video: KARENPATRICIABETANCURSALAZAR_AA3_EV02_Video.mp4
 - Repositorio: https://github.com/karenbetancursalazar-eng/hello-baby
 - Carpeta del módulo: backend-springboot
 - Commit de la EV02: 4897fe4
