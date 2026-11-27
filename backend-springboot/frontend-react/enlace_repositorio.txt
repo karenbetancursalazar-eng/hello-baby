@@ -1,0 +1,17 @@
+Enlace del repositorio del proyecto Hello Baby:
+
+https://github.com/karenbetancursalazar-eng/hello-baby
+
+Código de la evidencia GA7-220501096-AA4-EV03:
+https://github.com/karenbetancursalazar-eng/hello-baby/tree/main/backend-springboot/frontend-react
+
+Contenido versionado:
+- Proyecto React + Vite del módulo Empleados.
+- Componentes definidos en AA4-EV02 (Layout, Navbar, Sidebar, ThemeSelector,
+  EmpleadoForm, DataTable, SearchBar, ConfirmModal, Alert, ThemeContext,
+  AuthContext y ProtectedRoute).
+- Validaciones de cédula, correo, WhatsApp, fecha y campos obligatorios.
+- Artefactos de apoyo: historias de usuario, casos de uso, estándares y scripts SQL.
+
+Commit de la EV03: [commit-pendiente]
+Rama: main

@@ -1,0 +1,36 @@
+/**
+ * Variables de tema de Hello Baby.
+ * El atributo data-theme en <html> alterna entre Peluquería y Barbería
+ * sin duplicar componentes ni hojas de estilo completas.
+ */
+
+:root,
+:root[data-theme='peluqueria'] {
+  --color-primario: #e91e63;
+  --color-primario-oscuro: #ad1457;
+  --color-acento: #f8bbd0;
+  --color-fondo: #fff7fa;
+  --color-superficie: #ffffff;
+  --color-texto: #2b2b2b;
+  --color-texto-suave: #6f6f6f;
+  --color-borde: #f2ccdc;
+  --color-error: #c62828;
+  --color-exito: #2e7d32;
+  --color-peligro: #c62828;
+  --radio: 12px;
+  --sombra: 0 8px 24px rgba(43, 43, 43, 0.08);
+}
+
+:root[data-theme='barberia'] {
+  --color-primario: #263238;
+  --color-primario-oscuro: #11191d;
+  --color-acento: #90a4ae;
+  --color-fondo: #eceff1;
+  --color-superficie: #ffffff;
+  --color-texto: #263238;
+  --color-texto-suave: #607d8b;
+  --color-borde: #cfd8dc;
+  --color-error: #b71c1c;
+  --color-exito: #2e7d32;
+  --color-peligro: #b71c1c;
+}
