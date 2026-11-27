@@ -7,7 +7,7 @@ servicio recibe un **usuario** y una **contraseña**. Si la autenticación es
 correcta devuelve un mensaje satisfactorio; en caso contrario devuelve un
 error de autenticación.
 
-## endpoints
+## Endpoints
 
 Base: `http://localhost:8081/hello-baby-springboot/api/auth`
 
