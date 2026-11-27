@@ -20,5 +20,5 @@ Evidencia GA7-220501096-AA3-EV02:
 - Video: WhatsApp Video 2026-11-23 at 9.27.58 AM.mp4
 - Repositorio: https://github.com/karenbetancursalazar-eng/hello-baby
 - Carpeta del módulo: backend-springboot
-- Commit de la EV02: 6ff58d7
+- Commit de la EV02: 4897fe4
 Rama: main
